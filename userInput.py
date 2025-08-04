@@ -1,15 +1,33 @@
 # This code is to save the user's info in a .JSON file and, then, store them in a Dictionary function to enable communication between two programs
 
-print("What's your name?")
-name = input("> ")
+def getName():
+    while True:
+        name = input("What's your name? >").strip()
+        if name.isalpha():
+            return name
+        print("Please, enter only text")
 
-print("How old are you?")
-age = input("> ")
+def getAge():
+    while True:
+        age = input("How old are you? >").strip()
+        if age.isdigit():
+            return int(age)
+        print("Please, enter only numbers")
 
-print("What's your height? (in cm)")
-height = input("> ")
+def getHeight():
+    while True:
+        height = input("What's your height? (in m) >").strip()
+        try:
+            value = float(height)
+            return value
+        except ValueError:
+            pass
+        print("Please, enter only numbers")
 
-name = str
-age = int 
-height = float 
+name = getName()
+age = getAge()
+height = getHeight()
 
+print(f"Name : {name}")
+print(f"Age : {age}")
+print(f"height : {height}m")
