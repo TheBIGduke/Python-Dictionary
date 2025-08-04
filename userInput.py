@@ -1,6 +1,7 @@
 # This code is to save the user's info in a .JSON file and, then, store them in a Dictionary function to enable communication between two programs
 
 import json 
+import time
 
 #Input Validation Functions
 def getName():
