@@ -8,3 +8,8 @@ age = input("> ")
 
 print("What's your height? (in cm)")
 height = input("> ")
+
+name = str
+age = int 
+height = float 
+
