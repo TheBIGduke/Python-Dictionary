@@ -1,17 +1,19 @@
 # This code is to save the user's info in a .JSON file and, then, store them in a Dictionary function to enable communication between two programs
+
 import json 
 
+#Input Validation Functions
 def getName():
-    while True:
-        name = input("What's your name? >").strip()
-        if name.isalpha():
+    while True: # Function that keeps asking the user for the info until received
+        name = input("What's your name? >").strip() # Removes any extra spaces from the input
+        if name.isalpha(): # Checks the input for letters only
             return name
         print("Please, enter only text")
 
 def getAge():
     while True:
         age = input("How old are you? >").strip()
-        if age.isdigit():
+        if age.isdigit(): # Checks the input for numbers only
             return int(age)
         print("Please, enter only numbers")
 
@@ -25,26 +27,34 @@ def getHeight():
             pass
         print("Please, enter only numbers")
 
-name = getName()
+
+# Data Collection and Display
+
+name = getName() # Stores the results in variables
 age = getAge()
 height = getHeight()
 
-print(f"Name : {name}")
+print(f"Name : {name}") # Displays formatted output using f-strings
 print(f"Age : {age}")
 print(f"height : {height}m")
 
 
+# Dictionary Creation
+
 info = {
     "Name" : name,
     "Age" : age,
-    "height" : height
+    "Height" : height
 }
-    
+
+
+# JSON File Operations
+
 try:
-    with open('output.json', 'w') as file:
-        json.dump(info, file, indent=4)
+    with open('output.json', 'w') as file: # Uses with statement for safe handling and creates a JSON file in write mode
+        json.dump(info, file, indent=4) # json.dump() converts dictionary to JSON format
     print("\nInformation saved succesfully")
     print("JSON file contents:")
-    print(json.dumps(info, indent=4))
+    print(json.dumps(info, indent=4)) # indent=4 creates readable JSON with proper spacing
 except Exception as e:
     print(f"Error saving information: {str(e)}")
