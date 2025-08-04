@@ -48,10 +48,15 @@ info = {
 }
 
 
+# Get File Name
+
+fileName = input("Enter the file name to save >").strip()
+ 
+
 # JSON File Operations
 
 try:
-    with open('output.json', 'w') as file: # Uses with statement for safe handling and creates a JSON file in write mode
+    with open(f'{fileName}.json', 'w') as file: # Uses with statement for safe handling and creates a JSON file in write mode with the name specified by the user
         json.dump(info, file, indent=4) # json.dump() converts dictionary to JSON format
     print("\nInformation saved succesfully")
     print("JSON file contents:")
