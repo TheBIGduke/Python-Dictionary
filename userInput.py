@@ -1,1 +1,1 @@
-
+# This code is to save the user's info in a .JSON file and, then, store them in a Dictionary function to enable communication between two programs
